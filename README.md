@@ -2,7 +2,7 @@
 
 # Ideas
 1.
-Labeled Map - show nodes where radiation is detected. (Braden and Robert
+Labeled Map - show nodes where radiation is detected. (Braden and Robert)
 
 No label Map - show heat map where radiation is most potent. (Mia and Arturo)
 
