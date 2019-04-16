@@ -6,7 +6,7 @@ Labeled Map - show nodes where radiation is detected.
 No label Map - show heat map where radiation is most potent. 
 
 2.
-Overlapping map for static and mobile sensors. Will you different color schemes to show difference between them. Be able to toggle them on and off.
+Overlapping map for static and mobile sensors. Will use different color schemes to show difference between them. Be able to toggle them on and off.
 
 3.
 See 1.
