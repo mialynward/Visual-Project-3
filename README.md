@@ -1,4 +1,9 @@
 # Visual-Project-3
+# Mini-Challenge 2: Citizen Science to the Rescue!
+
+Information of the challenge can be found in the link below.
+https://vast-challenge.github.io/2019/MC2.html
+
 
 # Ideas
 1.
