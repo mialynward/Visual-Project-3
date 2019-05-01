@@ -4,6 +4,7 @@
 Information of the challenge can be found in the link.
 https://vast-challenge.github.io/2019/MC2.html
 
+Create Database (MongoDB), reformat the data (Mia)
 
 # Ideas To Implement Challenge
 1. Visualize radiation measurements over time from both static and mobile sensors to identify areas where radiation over background is detected. Characterize changes over time.
@@ -19,12 +20,12 @@ What effects do you see in the sensor readings after the earthquake and other ma
 
 Overlapping map for static and mobile sensors. Will use different color schemes to show difference between them. Be able to toggle them on and off.
 
+Robert will figure out how to determine the uncertainty and help integrate it with the rest of the code.
+
 3. Given the uncertainty you observed in question 2, are the radiation measurements reliable enough to locate areas of concern?
 Highlight potential locations of contamination, including the locations of contaminated cars. Should St. Himark officials be worried about contaminated cars moving around the city?
 Estimate how many cars may have been contaminated when coolant leaked from the Always Safe plant. Use visual analysis of radiation measurements to determine if any have left the area.
 Indicated where you would deploy more sensors to improve radiation monitoring in the city. Would you recommend more static sensors or more mobile sensors or both? Use your visualization of radiation measurement uncertainty to justify your recommendation.
-
-See 1.
 
 4. and 5.
 TBD after project is completed.
