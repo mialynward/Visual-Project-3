@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = '//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+    <style>
+        .axis {
+        stroke: black;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="slidecontainer">
+    <input type="range" min="0" max="1440" value="0" class="slider" id="myRange">
+</div>
+
+<script>
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        console.log(d3.select(this).property('value'));
+    }
+
+    var outerWidth = 800;
+    var outerHeight = 800;
+
+    var marginLeft = 60;
+    var marginRight = 30;
+    var marginTop = 30;
+    var marginBottom = 60;
+
+    var innerWidth = outerWidth - marginLeft - marginRight;
+    var innerHeight = outerHeight - marginTop - marginBottom;
+
+    var xAxisLabelText = "Longitude";
+    var xAxisLabelOffset = 55;
+    var yAxisLabelText = "Latitude";
+    var yAxisLabelOffset = -40;
+
+    var svg = d3.select("body").append("svg").attr("width", outerWidth).attr("height", outerHeight);
+
+
+    var g = svg.append("g")
+    .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+    var xAxisG = g.append("g").attr("class", "axis")
+    .attr("transform", "translate(0, " + innerHeight + ")");
+
+    var yAxisG = g.append("g").attr("class", "axis");
+
+    var xScale = d3.scale.linear().range([0, innerWidth]).domain([-120, -119.711751]);
+    var yScale = d3.scale.linear().range([innerHeight, 0]).domain([0, 0.238585]);
+
+    var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+    var yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+    svg.append("defs")
+        .append("pattern")
+        .attr("id", "bg")
+        .append("image")
+        .attr("xlink:href", "https://github.com/BradenLee/Project2/blob/master/StHimarkLabeledMap.png");
+
+    svg.append("rect")
+        .attr("x", 50)
+        .attr("y", 50)
+        .attr("width", 500)
+        .attr("height", 500)
+        .attr("fill", "url(#test)");
+
+
+    function render(data1){
+
+    xAxisG.append("text")
+    .style("text-anchor", "middle")
+    .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+    .text(xAxisLabelText);
+
+    yAxisG.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", yAxisLabelOffset)
+    .attr("x", (-1 * (innerHeight / 2)))
+    .style("text-anchor", "middle")
+    .text(yAxisLabelText);
+
+    xAxisG.call(xAxis);
+    yAxisG.call(yAxis);
+
+
+    var circles = g.selectAll("circle").data(data1);
+
+
+    circles.enter().append("circle")
+    .attr("r", 10)
+    .attr("stroke", "black")
+        .on("mouseover", function (d, i) {
+
+
+            d3.select(this).transition().duration(500).attr({
+                fill: "orange",
+                r: 20,
+                stroke: "black",
+            });
+
+            svg.append("text").attr({
+                id: "t",
+                x: 75,
+                y: 50
+            })
+                .text(function() {
+                    return ["ID # : " + d.ID + ", Latitude : " + d.Lat + ", Longitude : " + d.Long + ", User ID : " + d.User];
+                });
+        })
+        .on("mouseout", function(d,i) {
+            d3.select(this).transition().duration(500)
+                .attr("fill", function(d){
+                    if (d.User == "test" || d.User == "test2"){
+                        return "blue";
+                    }
+                    else{
+                        return "black";
+                    }
+                })
+                .attr("stroke", "black")
+                .attr("r", 10);
+
+            d3.select("#t").remove();
+        });
+
+    circles
+    .attr("cx", function (d){return xScale(d.Long);})
+    .attr("cy", function (d){return yScale(d.Lat);})
+    .attr("fill", function(d){
+        if (d.User == "test" || d.User == "test2"){
+            return "blue";
+        }
+        else{
+            return "black";
+        }
+    })
+    .attr("stroke", "black");
+
+    circles.exit().remove();
+
+    }
+
+    function hospital(data){
+        d3.select("#x").remove();
+        data.forEach(function (d){
+            console.log(d.Long + " " + d.Lat + " " + d.Value);
+            if((Math.abs((d.Long * - 1) - 119.959400) < 0.01) && (Math.abs(d.Lat - 0.180960) < 0.01) && (d.Value > 10)){
+                var circles2 = g.append("circle").data(data)
+                    .attr("fill", "red")
+                    .attr("r", 10)
+                    .attr("cx", function (d){return xScale(-119.959400);})
+                    .attr("cy", function (d){return yScale(0.180960);})
+                    .attr("id", "x")
+                    .attr("stroke", "black")
+                    .on("mouseover", function (d, i) {
+
+
+                        d3.select(this).transition().duration(500).attr({
+                            fill: "orange",
+                            r: 20,
+                            stroke: "black",
+                        });
+
+                        svg.append("text").attr({
+                            id: "t",
+                            x: 75,
+                            y: 50
+                        })
+                            .text(function() {
+                                return ["Hospital 1 needs to Evacuate"];
+                            });
+                    })
+                    .on("mouseout", function(d,i) {
+                        d3.select(this).transition().duration(500)
+                            .attr("fill", "red")
+                            .attr("stroke", "black")
+                            .attr("r", 10);
+
+                        d3.select("#t").remove();
+                    });
+            }
+            if((Math.abs((d.Long * - 1) - 119.915900) < 0.01) && (Math.abs(d.Lat - 0.153120) < 0.01) && (d.Value > 10)){
+                var circles3 = g.append("circle").data(data)
+                    .attr("fill", "red")
+                    .attr("r", 10)
+                    .attr("cx", function (d){return xScale(-119.959400);})
+                    .attr("cy", function (d){return yScale(0.180960);})
+                    .attr("id", "x")
+                    .attr("stroke", "black")
+                    .on("mouseover", function (d, i) {
+
+
+                        d3.select(this).transition().duration(500).attr({
+                            fill: "orange",
+                            r: 20,
+                            stroke: "black",
+                        });
+
+                        svg.append("text").attr({
+                            id: "t",
+                            x: 75,
+                            y: 50
+                        })
+                            .text(function() {
+                                return ["Hospital 1 needs to Evacuate"];
+                            });
+                    })
+                    .on("mouseout", function(d,i) {
+                        d3.select(this).transition().duration(500)
+                            .attr("fill", "red")
+                            .attr("stroke", "black")
+                            .attr("r", 10);
+
+                        d3.select("#t").remove();
+                    });
+            }
+        })
+    }
+
+    var data2 = [];
+    var Data = [];
+    var Data2 = [];
+
+    d3.csv("StaticSensorLocations.csv", type, function(data){
+        data.forEach(function(d, i){
+            Data[i] = data[i];
+        })
+        append(Data);
+        //render(Data);
+    });
+
+    d3.csv("Book1.csv", type, function(data){
+        data.forEach(function(d, i){
+            Data2[i] = data[i];
+        })
+        append(Data2);
+        //render(Data2);
+    });
+
+    function append(DATA) {
+        DATA.forEach(function (d, i) {
+            data2.push(DATA[i]);
+        });
+        render(data2);
+        hospital(data2);
+    }
+
+
+    function type(d){
+        d.Lat = parseFloat(d.Lat);
+        d.Long = parseFloat(d.Long);
+        return d;
+    }
+
+</script>
+
+</body>
+</html>

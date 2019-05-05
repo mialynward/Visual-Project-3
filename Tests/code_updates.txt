@@ -1,0 +1,9 @@
+I added a slider which steps through the entire day in 20 minute intervals.
+The csv files I uploaded have some fake data just for demo purposes if you want to try it out.
+As the slider goes across the mobile sensors move accross the chart.
+
+I also updated the hospital evacuations.
+First I changed them from circles to squares to help distinguish them from the sensors.
+Second I made them accurate with time.
+	Once a sensor triggers that a hospital needs to evacuate that square will remain for the entire day after that moment.
+	If the slider pushes the time to a moment before the evacuation was triggered then the square will be removed.

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = '//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+    <style>
+        .axis {
+            stroke: black;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+        .slidecontainer {
+            width: 50%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 50%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        //background: #4CAF50;
+            background: black;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="slidecontainer">
+    <input type="range" min="0" max="72" value="0" class="slider" id="myRange">
+    <p>Time: <span id="demo"></span></p>
+</div>
+
+
+
+<script>
+
+    var outerWidth = 800;
+    var outerHeight = 800;
+
+    var marginLeft = 60;
+    var marginRight = 30;
+    var marginTop = 30;
+    var marginBottom = 60;
+
+    var innerWidth = outerWidth - marginLeft - marginRight;
+    var innerHeight = outerHeight - marginTop - marginBottom;
+
+    var xAxisLabelText = "Longitude";
+    var xAxisLabelOffset = 55;
+    var yAxisLabelText = "Latitude";
+    var yAxisLabelOffset = -40;
+
+    var svg = d3.select("body").append("svg").attr("width", outerWidth).attr("height", outerHeight);
+
+
+    var g = svg.append("g")
+        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+    var xAxisG = g.append("g").attr("class", "axis")
+        .attr("transform", "translate(0, " + innerHeight + ")");
+
+    var yAxisG = g.append("g").attr("class", "axis");
+
+    var xScale = d3.scale.linear().range([0, innerWidth]).domain([-120, -119.711751]);
+    var yScale = d3.scale.linear().range([innerHeight, 0]).domain([0, 0.238585]);
+
+    var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+    var yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+
+    svg.append("defs")
+        .append("pattern")
+        .attr("id", "bg")
+        .append("image")
+        .attr("xlink:href", "https://github.com/BradenLee/Project2/blob/master/StHimarkLabeledMap.png");
+
+    svg.append("rect")
+        .attr("x", 50)
+        .attr("y", 50)
+        .attr("width", 500)
+        .attr("height", 500)
+        .attr("fill", "url(#test)");
+
+
+    function render(data1){
+
+        xAxisG.append("text")
+            .style("text-anchor", "middle")
+            .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+            .text(xAxisLabelText);
+
+        yAxisG.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", yAxisLabelOffset)
+            .attr("x", (-1 * (innerHeight / 2)))
+            .style("text-anchor", "middle")
+            .text(yAxisLabelText);
+
+        xAxisG.call(xAxis);
+        yAxisG.call(yAxis);
+
+
+        var circles = g.selectAll("circle").data(data1);
+
+
+        circles.enter().append("circle")
+            .attr("r", 10)
+            .on("mouseover", function (d, i) {
+
+
+                d3.select(this).transition().duration(500).attr({
+                    fill: "orange",
+                    r: 20,
+                });
+
+                svg.append("text").attr({
+                    id: "t",
+                    x: 75,
+                    y: 50
+                })
+                    .text(function() {
+                        return ["ID # : " + d.ID + ", Latitude : " + d.Lat + ", Longitude : " + d.Long + ", User ID : " + d.User];
+                    });
+            })
+            .on("mouseout", function(d,i) {
+                d3.select(this).transition().duration(500)
+                    .attr("fill", function(d){
+                        if (timeStep === d.Timestamp && d.User == "mobile"){
+                            return "blue";
+                        }
+                        else if (d.User == "Static"){
+                            return "black";
+                        }
+                        else {
+                            return "none";
+                        }
+                    })
+                    .attr("r", 10);
+
+                d3.select("#t").remove();
+            });
+
+        circles
+            .attr("cx", function (d){return xScale(d.Long);})
+            .attr("cy", function (d){return yScale(d.Lat);})
+            .attr("fill", function(d){
+                if (timeStep === d.Timestamp && d.User == "mobile"){
+                    return "blue";
+                }
+                else if (d.User == "Static"){
+                    return "black";
+                }
+                else {
+                    return "none";
+                }
+            });
+
+        circles.exit().remove();
+
+    }
+
+    var hospital1temp = 0;
+    var hospital2temp = 0;
+
+    function hospital(data){
+
+        if(Input < hospital1temp){
+            d3.select("#hosp1").remove();
+        }
+
+        if(Input < hospital2temp){
+            d3.select("#hosp2").remove();
+        }
+
+        data.forEach(function (d){
+            if(d.Timestamp === timeStep) {
+                if ((Math.abs((d.Long * -1) - 119.959400) < 0.01) && (Math.abs(d.Lat - 0.180960) < 0.01) && (d.Value > 10)) {
+                    hospital1temp = Input;
+                    var hospital1 = g.append("rect").data(data)
+                        .attr("fill", "red")
+                        .attr("height", 20)
+                        .attr("width", 20)
+                        .attr("x", function (d) {
+                            return (xScale(-119.959400) - 10);
+                        })
+                        .attr("y", function (d) {
+                            return (yScale(0.180960) + 10);
+                        })
+                        .attr("id", "hosp1")
+                        .attr("stroke", "black")
+                        .on("mouseover", function (d, i) {
+
+
+                            d3.select(this).transition().duration(500).attr({
+                                fill: "orange",
+                                width: 40,
+                                height: 40,
+                                stroke: "black",
+                            });
+
+                            svg.append("text").attr({
+                                id: "t",
+                                x: 75,
+                                y: 50
+                            })
+                                .text(function () {
+                                    return ["Hospital 1 needs to Evacuate"];
+                                });
+                        })
+                        .on("mouseout", function (d, i) {
+                            d3.select(this).transition().duration(500)
+                                .attr("fill", "red")
+                                .attr("stroke", "black")
+                                .attr("width", 20)
+                                .attr("height", 20);
+
+                            d3.select("#t").remove();
+                        });
+                }
+                if ((Math.abs((d.Long * -1) - 119.915900) < 0.01) && (Math.abs(d.Lat - 0.153120) < 0.01) && (d.Value > 10)) {
+                    hospital2temp = Input;
+                    var hospital2 = g.append("rect").data(data)
+                        .attr("fill", "red")
+                        .attr("width", 20)
+                        .attr("height", 20)
+                        .attr("x", function (d) {
+                            return xScale(-119.915900);
+                        })
+                        .attr("y", function (d) {
+                            return yScale(0.153120);
+                        })
+                        .attr("id", "hosp2")
+                        .attr("stroke", "black")
+                        .on("mouseover", function (d, i) {
+
+
+                            d3.select(this).transition().duration(500).attr({
+                                fill: "orange",
+                                width: 40,
+                                height: 40,
+                                stroke: "black",
+                            });
+
+                            svg.append("text").attr({
+                                id: "t",
+                                x: 75,
+                                y: 50
+                            })
+                                .text(function () {
+                                    return ["Hospital 2 needs to Evacuate"];
+                                });
+                        })
+                        .on("mouseout", function (d, i) {
+                            d3.select(this).transition().duration(500)
+                                .attr("fill", "red")
+                                .attr("stroke", "black")
+                                .attr("width", 20)
+                                .attr("height", 20);
+
+                            d3.select("#t").remove();
+                        });
+                }
+            }
+        })
+    }
+
+    var data2 = [];
+    var Data = [];
+    var Data2 = [];
+
+    d3.csv("StaticSensorLocations.csv", type, function(data){
+        data.forEach(function(d, i){
+            Data[i] = data[i];
+        })
+        append(Data);
+    });
+
+    d3.csv("Book1.csv", type, function(data){
+        data.forEach(function(d, i){
+            Data2[i] = data[i];
+        })
+        append(Data2);
+    });
+
+    function append(DATA) {
+        DATA.forEach(function (d, i) {
+            data2.push(DATA[i]);
+        });
+        render(data2);
+        hospital(data2);
+    }
+
+
+    function type(d){
+        d.Lat = parseFloat(d.Lat);
+        d.Long = parseFloat(d.Long);
+        return d;
+    }
+
+    var timeStep = "4/6/2020 0:00";
+    var Input = 0;
+    var dummyData = [];
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = timeStep;
+
+    slider.oninput = function() {
+
+        Input = this.value;
+
+        Input = parseFloat(Input);
+
+        switch (Input) {
+            case 0:
+                timeStep = "4/6/2020 0:00";
+                append(dummyData);
+                break;
+            case 1:
+                timeStep = "4/6/2020 0:20";
+                append(dummyData);
+                break;
+            case 2:
+                timeStep = "4/6/2020 0:40";
+                append(dummyData);
+                break;
+            case 3:
+                timeStep = "4/6/2020 1:00";
+                append(dummyData);
+                break;
+            case 4:
+                timeStep = "4/6/2020 1:20";
+                append(dummyData);
+                break;
+            case 5:
+                timeStep = "4/6/2020 1:40";
+                append(dummyData);
+                break;
+            case 6:
+                timeStep = "4/6/2020 2:00";
+                append(dummyData);
+                break;
+            case 7:
+                timeStep = "4/6/2020 2:20";
+                append(dummyData);
+                break;
+            case 8:
+                timeStep = "4/6/2020 2:40";
+                append(dummyData);
+                break;
+            case 9:
+                timeStep = "4/6/2020 3:00";
+                append(dummyData);
+                break;
+            case 10:
+                timeStep = "4/6/2020 3:20";
+                append(dummyData);
+                break;
+            case 11:
+                timeStep = "4/6/2020 3:40";
+                append(dummyData);
+                break;
+            case 12:
+                timeStep = "4/6/2020 4:00";
+                append(dummyData);
+                break;
+            case 13:
+                timeStep = "4/6/2020 4:20";
+                append(dummyData);
+                break;
+            case 14:
+                timeStep = "4/6/2020 4:40";
+                append(dummyData);
+                break;
+            case 15:
+                timeStep = "4/6/2020 5:00";
+                append(dummyData);
+                break;
+            case 16:
+                timeStep = "4/6/2020 5:20";
+                append(dummyData);
+                break;
+            case 17:
+                timeStep = "4/6/2020 5:40";
+                append(dummyData);
+                break;
+            case 18:
+                timeStep = "4/6/2020 6:00";
+                append(dummyData);
+                break;
+            case 19:
+                timeStep = "4/6/2020 6:20";
+                append(dummyData);
+                break;
+            case 20:
+                timeStep = "4/6/2020 6:40";
+                append(dummyData);
+                break;
+            case 21:
+                timeStep = "4/6/2020 7:00";
+                append(dummyData);
+                break;
+            case 22:
+                timeStep = "4/6/2020 7:20";
+                append(dummyData);
+                break;
+            case 23:
+                timeStep = "4/6/2020 7:40";
+                append(dummyData);
+                break;
+            case 24:
+                timeStep = "4/6/2020 8:00";
+                append(dummyData);
+                break;
+            case 25:
+                timeStep = "4/6/2020 8:20";
+                append(dummyData);
+                break;
+            case 26:
+                timeStep = "4/6/2020 8:40";
+                append(dummyData);
+                break;
+            case 27:
+                timeStep = "4/6/2020 9:00";
+                append(dummyData);
+                break;
+            case 28:
+                timeStep = "4/6/2020 9:20";
+                append(dummyData);
+                break;
+            case 29:
+                timeStep = "4/6/2020 9:40";
+                append(dummyData);
+                break;
+            case 30:
+                timeStep = "4/6/2020 10:00";
+                append(dummyData);
+                break;
+            case 31:
+                timeStep = "4/6/2020 10:20";
+                append(dummyData);
+                break;
+            case 32:
+                timeStep = "4/6/2020 10:40";
+                append(dummyData);
+                break;
+            case 33:
+                timeStep = "4/6/2020 11:00";
+                append(dummyData);
+                break;
+            case 34:
+                timeStep = "4/6/2020 11:20";
+                append(dummyData);
+                break;
+            case 35:
+                timeStep = "4/6/2020 11:40";
+                append(dummyData);
+                break;
+            case 36:
+                timeStep = "4/6/2020 12:00";
+                append(dummyData);
+                break;
+            case 37:
+                timeStep = "4/6/2020 12:20";
+                append(dummyData);
+                break;
+            case 38:
+                timeStep = "4/6/2020 12:40";
+                append(dummyData);
+                break;
+            case 39:
+                timeStep = "4/6/2020 13:00";
+                append(dummyData);
+                break;
+            case 40:
+                timeStep = "4/6/2020 13:20";
+                append(dummyData);
+                break;
+            case 41:
+                timeStep = "4/6/2020 13:40";
+                append(dummyData);
+                break;
+            case 42:
+                timeStep = "4/6/2020 14:00";
+                append(dummyData);
+                break;
+            case 43:
+                timeStep = "4/6/2020 14:20";
+                append(dummyData);
+                break;
+            case 44:
+                timeStep = "4/6/2020 14:40";
+                append(dummyData);
+                break;
+            case 45:
+                timeStep = "4/6/2020 15:00";
+                append(dummyData);
+                break;
+            case 46:
+                timeStep = "4/6/2020 15:20";
+                append(dummyData);
+                break;
+            case 47:
+                timeStep = "4/6/2020 15:40";
+                append(dummyData);
+                break;
+            case 48:
+                timeStep = "4/6/2020 16:00";
+                append(dummyData);
+                break;
+            case 49:
+                timeStep = "4/6/2020 16:20";
+                append(dummyData);
+                break;
+            case 50:
+                timeStep = "4/6/2020 16:40";
+                append(dummyData);
+                break;
+            case 51:
+                timeStep = "4/6/2020 17:00";
+                append(dummyData);
+                break;
+            case 52:
+                timeStep = "4/6/2020 17:20";
+                append(dummyData);
+                break;
+            case 53:
+                timeStep = "4/6/2020 17:40";
+                append(dummyData);
+                break;
+            case 54:
+                timeStep = "4/6/2020 18:00";
+                append(dummyData);
+                break;
+            case 55:
+                timeStep = "4/6/2020 18:20";
+                append(dummyData);
+                break;
+            case 56:
+                timeStep = "4/6/2020 18:40";
+                append(dummyData);
+                break;
+            case 57:
+                timeStep = "4/6/2020 19:00";
+                append(dummyData);
+                break;
+            case 58:
+                timeStep = "4/6/2020 19:20";
+                append(dummyData);
+                break;
+            case 59:
+                timeStep = "4/6/2020 19:40";
+                append(dummyData);
+                break;
+            case 60:
+                timeStep = "4/6/2020 20:00";
+                append(dummyData);
+                break;
+            case 61:
+                timeStep = "4/6/2020 20:20";
+                append(dummyData);
+                break;
+            case 62:
+                timeStep = "4/6/2020 20:40";
+                append(dummyData);
+                break;
+            case 63:
+                timeStep = "4/6/2020 21:00";
+                append(dummyData);
+                break;
+            case 64:
+                timeStep = "4/6/2020 21:20";
+                append(dummyData);
+                break;
+            case 65:
+                timeStep = "4/6/2020 21:40";
+                append(dummyData);
+                break;
+            case 66:
+                timeStep = "4/6/2020 22:00";
+                append(dummyData);
+                break;
+            case 67:
+                timeStep = "4/6/2020 22:20";
+                append(dummyData);
+                break;
+            case 68:
+                timeStep = "4/6/2020 22:40";
+                append(dummyData);
+                break;
+            case 69:
+                timeStep = "4/6/2020 23:00";
+                append(dummyData);
+                break;
+            case 70:
+                timeStep = "4/6/2020 23:20";
+                append(dummyData);
+                break;
+            case 71:
+                timeStep = "4/6/2020 23:40";
+                append(dummyData);
+                break;
+        }
+
+        output.innerHTML = timeStep;
+
+    }
+
+</script>
+
+</body>
+</html>
