@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    <title>Basic geo (svg)</title>
+    <title>Heat Map</title>
 </head>
 
 <style>
@@ -13,7 +13,7 @@
 
 <body>
 <div id="content">
-    <svg width="400px" height="400px">
+    <svg width="800px" height="800px">
         <g class="map"></g>
     </svg>
 </div>
@@ -23,7 +23,7 @@
 <script>
     d3.json('StHimark.geojson', geojson => {
 
-        let width = 400, height = 400;
+        let width = 800, height = 800;
         let projection = d3.geoEquirectangular().scale(1).translate([0, 0]);
 
         let geoGenerator = d3.geoPath()
@@ -45,7 +45,7 @@
                 .append('path')
                 .attr('d', geoGenerator);
         }
-
+        debugger
         update(geojson);
     });
 
