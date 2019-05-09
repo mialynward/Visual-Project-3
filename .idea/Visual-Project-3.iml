@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="d3" level="application" />
     <orderEntry type="library" name="4f24941f4725789fe066467333e6346e" level="application" />
+    <orderEntry type="library" name="d3.v3" level="application" />
   </component>
 </module>

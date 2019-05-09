@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{4f24941f4725789fe066467333e6346e, d3}" />
+    <file url="PROJECT" libraries="{4f24941f4725789fe066467333e6346e, d3, d3.v3}" />
   </component>
 </project>
