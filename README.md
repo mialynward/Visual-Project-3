@@ -4,6 +4,11 @@ Your task, as supported by visual analytics that you apply, is to help St. Himar
 Information about the challenge can be found in the link below. <br/>
 https://vast-challenge.github.io/2019/MC2.html
 
+## Video
+Below is the link to our video that explains how our map works. The link to the maps is posted below that as well.<br/>
+https://youtu.be/w57hxk763z0 <br/>
+https://mialynward.github.io/
+
 ## Data
 By Mia Ward <br/>
 We Modified the data to make it easier to work with. For one of our maps where we would should the locations of the sensors we combined the static and mobiles sensors into one csv file. The data was organized by going through all the mobile sensor's and the readings they had every 20 minute intervals, as well as including location base on longitude and latitude and the name of the User for that sensor. Then the static sensors were listed providing the same information as the mobile sensors, while replacing User with just "Static." For the heat map, we had two separate csv files that would only show on of the days. Both provide the sensor ID or User, the time of the reading (separated by 20 minute intervals) and the value of the radiation. <br/>
@@ -45,9 +50,6 @@ It can be speculated that sensors close to the nuclear plant so drastic readings
 It does not seem to be reliable enough. Some of the mobile sensors, when close to a static sensor or another mobile sensor, showed different radiation levels in their readings. Other sensors had readings that were drastically different than the readings during the times right before and after, showing that there could be a lot of outliers or false readings scewing the analysis.
 <br/>
 
-## Video
-Below is the link to our video that explains how our map works. The link to the maps is posted below that as well.<br/>
-https://youtu.be/w57hxk763z0 <br/>
-https://mialynward.github.io/
+
 
 
