@@ -34,9 +34,16 @@ Mobile heat graph
 2. Create a graph that will demostrate uncertainty in the measurement of radiation across the city:
 <br/>
 
-For this we will be construction an algorithm that will determine the uncertainty of some sensors. This will be done by looking at the static and mobile sensors and seeing if there is a big enough difference in radiation levels at the same location and time. Given a set low and high range, we will be able to learn if a sensor is unrealiable at a given time and location. This will be done by **Roberto**. For our graph we will be making an overlapping map for the static and mobile sensors. We will use different color schemes to show difference between the static and mobile and will be able to toggle them on and off. We will also show with a blinking red dot if a sensor is registered as "uncertain" at a given location and time. **Roberto and Braden** shall be making the static graph and **Mia and Arturo** shall be making the mobile graph then we will add them together with a toggle.
+In the map that shows the locations of the sensors and their readings, we added a selection at the bottom where instead of looking at the readings of the radiations levels, it shows the uncertainty of the sensors. The smaller the sizes of the node is, the less certain the data is. This was calculated by checking the highest and lowest readings of each node. If the difference between them is big, then it can be concluded that the readings are too vague to be certain.
+
+![MapUncertainty2](https://user-images.githubusercontent.com/45511267/57504523-742b7780-72ba-11e9-94fa-c434e888722a.png)
+
+It can be speculated that sensors close to the nuclear plant so drastic readings since most of those tended to be smaller than the nodes that are farther away from the plant.
 <br/>
 
-# Extra Graphs to Help with Visualization
+3. Is the data reliable enough to locate areas of concerns:
+<br/>
 
-We would also like to construct a line graph for each area to show the time intervals of radiation of each sensor and how the radiation detected changes over time.
+It does not seem to be reliable enough. Some of the mobile sensors, when close to a static sensor or another mobile sensor, showed different radiation levels in their readings. Other sensors had readings that were drastically different than the readings during the times right before and after, showing that there could be a lot of outliers or false readings scewing the analysis.
+<br/>
+
