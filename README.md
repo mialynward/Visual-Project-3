@@ -15,6 +15,7 @@ The team were divided into different tasks. **Braden and Roberto** worked on pro
 ## Task Questions
 
 1. To help visualize measurements over time from static and mobile sensors of radiation we will be building two graphs of the area: <br/>
+
 One such visualization shall be a map that show nodes where radiation is detected. This graphic will include Latitude and Longitude coordinates with black nodes being where radiation is detected from a static sensor. Colored nodes will represent where radiation is dtected by a mobile sensor. When hovered over, the nodes shall change to pink and display the exact coordinates and the sensor or user ID. The bigger the node is, the higher the radiation reading is. There will also be red, square nodes that will represent a hospital. If one of the hospital nodes appears, it is an indication that that hospital needs to evacuate due to radiation levels exceeding dangerous levels. There will be a slider provided on the top left that will allow you to change the time of the readings. As you step through the time, you should noticed the mobile sensors moving. <br/>
 
 ![MapRadiation1](https://user-images.githubusercontent.com/45511267/57503792-5f011980-72b7-11e9-87f4-680f0d1e68aa.png)
