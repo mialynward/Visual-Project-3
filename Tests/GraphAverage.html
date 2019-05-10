@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style type="text/css">
+    .axis {
+        stroke: black;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+    }
+
+    /* Style the lines by removing the fill and applying a stroke */
+    .line {
+        fill: none;
+        stroke: blueviolet;
+        stroke-width: 3;
+    }
+
+    /* Style the dots by assigning a fill and stroke */
+    .dot {
+        fill: #ffab00;
+        stroke: #fff;
+    }
+
+    div.tooltip {
+        position: absolute;
+        text-align: center;
+        width: 60px;
+        height: 28px;
+        padding: 2px;
+        font: 12px sans-serif;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+</style>
+<body>
+</body>
+<script src = '//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+<script src="Testing.js"></script>
+<script>
+
+    //-----------------------------Graph is unfinished----------------------------------------
+
+    var outerWidth = 1600;
+    var outerHeight = 900;
+
+    var marginLeft = 60;
+    var marginRight = 30;
+    var marginTop = 30;
+    var marginBottom = 60;
+
+    var innerWidth = outerWidth - marginLeft - marginRight;
+    var innerHeight = outerHeight - marginTop - marginBottom;
+
+    var xAxisLabelText = "Entry";
+    var xAxisLabelOffset = 55;
+    var yAxisLabelText = "Radiation Average";
+    var yAxisLabelOffset = -40;
+
+    // creates svg
+    var svg = d3.select("body").append("svg").attr("width", outerWidth).attr("height", outerHeight);
+
+    // gets the svg ready for the graph
+    var g = svg.append("g")
+        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+    var xAxisG = g.append("g").attr("class", "axis")
+        .attr("transform", "translate(0, " + innerHeight + ")");
+
+    var yAxisG = g.append("g").attr("class", "axis");
+
+    // sets x and y scales for the graph
+    var xScale = d3.scale.linear().range([0, innerWidth]).domain([0, 360]);
+    var xScale1 = d3.scale.linear().range([marginLeft, innerWidth+marginRight]).domain([0, 360]);
+    var yScale = d3.scale.linear().range([innerHeight, 0]).domain([10, 20]);
+
+    // sets the x and y axis
+    var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+    var yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+    // this function creates the data points on the graph
+    function render(data){
+        xAxisG.append("text")
+            .style("text-anchor", "middle")
+            .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+            .text(xAxisLabelText);
+
+        yAxisG.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", yAxisLabelOffset)
+            .attr("x", (-1 * (innerHeight / 2)))
+            .style("text-anchor", "middle")
+            .text(yAxisLabelText);
+
+        xAxisG.call(xAxis);
+        yAxisG.call(yAxis);
+
+        var valueline = d3.svg.line()
+            .x(function(d, i) { return xScale1(i); })
+            .y(function(d) { return yScale(d.Value); });
+
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        svg.append("path")
+            .datum(data) // 10. Binds data to the line
+            .attr("class", "line") // Assign a class for styling
+            .attr("d", valueline);
+
+        svg.selectAll("dot")
+            .data(data)
+            .enter().append("circle")
+            .attr("r", 5)
+            .attr("cx", function(d, i) { return xScale1(i); })
+            .attr("cy", function(d) { return yScale(d.Value); })
+            .on("mouseover", function(d) {
+                d3.select(this).transition().duration(500).attr({
+                    fill: "red",
+                    r: 10,
+                });
+                // creates text with data for that circle
+                svg.append("text").attr({
+                    id: "t",
+                    x: 700,
+                    y: 30
+                })
+                    .text(function() {
+                        return ["ID # : " + d.Label + ", Radiation Average : " + d.Value + ", Time : " + d.Time];
+                    });
+            })
+            .on("mouseout", function(d,i) {
+                // makes the circles the correct color
+                d3.select(this).transition().duration(500)
+                    .attr("fill", "black")
+                    .attr("r", 5);
+                d3.select("#t").remove();
+            });
+    }
+
+</script>
