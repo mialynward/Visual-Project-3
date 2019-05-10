@@ -45,3 +45,9 @@ It can be speculated that sensors close to the nuclear plant so drastic readings
 It does not seem to be reliable enough. Some of the mobile sensors, when close to a static sensor or another mobile sensor, showed different radiation levels in their readings. Other sensors had readings that were drastically different than the readings during the times right before and after, showing that there could be a lot of outliers or false readings scewing the analysis.
 <br/>
 
+## Video
+Below is the link to our video that explains how our map works. The link to the maps is posted below that as well.<br/>
+https://youtu.be/w57hxk763z0 <br/>
+https://mialynward.github.io/
+
+
