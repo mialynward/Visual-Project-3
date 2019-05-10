@@ -4,21 +4,31 @@ Your task, as supported by visual analytics that you apply, is to help St. Himar
 Information about the challenge can be found in the link below. <br/>
 https://vast-challenge.github.io/2019/MC2.html
 
-# Data
+## Data
 By Mia Ward <br/>
-We will be making a database in MongoDB and then reformatting the data in either Python or in Javascript. Since the data is presented in three csv files, we would like to combine all these files into a single database and then reformat as needed to make visualization easiest. We will be uploading pictures of how our data is presented once data processing has been completed. <br/>
+We Modified the data to make it easier to work with. For one of our maps where we would should the locations of the sensors we combined the static and mobiles sensors into one csv file. The data was organized by going through all the mobile sensor's and the readings they had every 20 minute intervals, as well as including location base on longitude and latitude and the name of the User for that sensor. Then the static sensors were listed providing the same information as the mobile sensors, while replacing User with just "Static." For the heat map, we had two separate csv files that would only show on of the days. Both provide the sensor ID or User, the time of the reading (separated by 20 minute intervals) and the value of the radiation. <br/>
 
-# Initial Planning Process and Team Contribution
+## Initial Planning Process and Team Contribution
+
+The team were divided into different tasks. **Braden and Roberto** worked on providing the visualization for the locations of the static and mobile sensors. They would also worked on a way to display uncertainty on sensors. **Mia and Arturo** worked on showing a heat graph to display a general view of the readings over time.
+
+## Task Questions
+
 1. To help visualize measurements over time from static and mobile sensors of radiation we will be building two graphs of the area: <br/>
 
-One such visualization shall be a labeled map of the area that show nodes where radiation is detected. This graphic will include Latitude and Longitude coordinates with black nodes being where radiation is detected from a sensor. When hovered over, the nodes shall show the exact coordinates and the user ID of the sensor. We have also included a helpful red node that shows local hospitals in the area and if that hosptial needs to evacuate given the amount of radiation has exceeded the average amount. This graphic will be done by **Roberto and Braden**. Below are snippets of the mockup they have created. <br/>
-![Initial Mockup 1](https://user-images.githubusercontent.com/44125513/57083165-b69ef400-6cbd-11e9-9d66-9c4d7a57c656.png)
-![Initial Mockup 2](https://user-images.githubusercontent.com/44125513/57083250-d8987680-6cbd-11e9-846e-7dd04eda0b39.png)
-![Initial Mockup 3](https://user-images.githubusercontent.com/44125513/57083254-d9c9a380-6cbd-11e9-8795-8bb4542d1404.png)
+One such visualization shall be a map that show nodes where radiation is detected. This graphic will include Latitude and Longitude coordinates with black nodes being where radiation is detected from a static sensor. Colored nodes will represent where radiation is dtected by a mobile sensor. When hovered over, the nodes shall change to pink and display the exact coordinates and the sensor or user ID. The bigger the node is, the higher the radiation reading is. There will also be red, square nodes that will represent a hospital. If one of the hospital nodes appears, it is an indication that that hospital needs to evacuate due to radiation levels exceeding dangerous levels. There will be a slider provided on the top left that will allow you to change the time of the readings. As you step through the time, you should noticed the mobile sensors moving. <br/>
+
+![MapRadiation1](https://user-images.githubusercontent.com/45511267/57503792-5f011980-72b7-11e9-87f4-680f0d1e68aa.png)
+Here it shows when you hover one of the nodes it displays the info at the top of the map.
 <br/>
 
-For a second visualization, we will be creating a graph with no labels that will show a heat map of where the radiation is most potent. This graphic shall include translucent circles of yellow and red indicating mild hazard and high hazard of radiation. When you hover over the affected area it will show the exact location and the ID of the sensor. This graphic will be done by **Mia and Arturo**. Below is a mockup of how we plan to tackle the graph. <br/>
-![unlabeled](https://user-images.githubusercontent.com/44125513/57084097-4beeb800-6cbf-11e9-8e0f-8b4d53f00bf8.JPG)
+For a second visualization, we created two heat graphs: one that will display the reading of static sensors and another for the mobile sensors. The graphs will have the sensors on the y-axis and the date on the x-axis. Each block on the graph has a gradient of red where the darker the color is, the more radiation that specific sensor at that time is reading. When you hover over one of the blocks, it will display its info at the bottom where it'll tell you: the time, the sensor, and the radiation level.
+<br/>
+![MapStatic1](https://user-images.githubusercontent.com/45511267/57504197-2cf0b700-72b9-11e9-99df-5ed627b82bcc.png)
+Static heat graph
+
+![MapMobile1](https://user-images.githubusercontent.com/45511267/57504215-3ed25a00-72b9-11e9-90c4-fb7b2d10ec1e.png)
+Mobile heat graph
 <br/>
 
 2. Create a graph that will demostrate uncertainty in the measurement of radiation across the city:
