@@ -1,0 +1,577 @@
+﻿variable,group,value
+MySensor, 0:00,23.4
+MySensor, 0:20,22.4
+MySensor, 0:40,30.495
+MySensor, 1:00,27.92698
+MySensor, 1:20,39.21942
+MySensor, 1:40,31.18083
+MySensor, 2:00,25
+MySensor, 2:20,28
+MySensor, 2:40,30
+MySensor, 3:00,33
+MySensor, 3:20,29
+MySensor, 3:40,24
+MySensor, 4:00,22
+MySensor, 4:20,25
+MySensor, 4:40,29
+MySensor, 5:00,30
+MySensor, 5:20,30
+MySensor, 5:40,31
+MySensor, 6:00,35
+MySensor, 6:20,39
+MySensor, 6:40,33
+MySensor, 7:00,31
+MySensor, 7:20,29
+MySensor, 7:40,28
+MySensor, 8:00,29
+MySensor, 8:20,31
+MySensor, 8:40,30
+MySensor, 9:00,33
+MySensor, 9:20,22
+MySensor, 9:40,21
+MySensor, 10:00,23
+MySensor, 10:20,24
+MySensor, 10:40,26
+MySensor, 11:00,30
+MySensor, 11:20,33
+MySensor, 11:40,30
+MySensor, 12:00,31
+MySensor, 12:20,31
+MySensor, 12:40,27.698
+MySensor, 13:00,19.597
+MySensor, 13:20,30.476
+MySensor, 13:40,20.399
+MySensor, 14:00,29.305
+MySensor, 14:20,26.2
+MySensor, 14:40,24.1
+MySensor, 15:00,28.097
+MySensor, 15:20,30.1
+MySensor, 15:40,35.097
+MySensor, 16:00,23.999
+MySensor, 16:20,39.963
+MySensor, 16:40,32.9
+MySensor, 17:00,30.901
+MySensor, 17:20,27.79
+MySensor, 17:40,25.8
+MySensor, 18:00,30.79
+MySensor, 18:20,29.692
+MySensor, 18:40,31
+MySensor, 19:00,28
+MySensor, 19:20,27
+MySensor, 19:40,30
+MySensor, 20:00,33
+MySensor, 20:20,32
+MySensor, 20:40,30
+MySensor, 21:00,29
+MySensor, 21:20,29
+MySensor, 21:40,28
+MySensor, 22:00,27
+MySensor, 22:20,29
+MySensor, 22:40,30
+MySensor, 23:00,30
+MySensor, 23:20,33
+MySensor, 23:40,30
+TestUnit, 0:00,24.00035
+TestUnit, 0:20,22.08645
+TestUnit, 0:40,25
+TestUnit, 1:00,23
+TestUnit, 1:20,24
+TestUnit, 1:40,24
+TestUnit, 2:00,22
+TestUnit, 2:20,23
+TestUnit, 2:40,25
+TestUnit, 3:00,24
+TestUnit, 3:20,25
+TestUnit, 3:40,24
+TestUnit, 4:00,23
+TestUnit, 4:20,23
+TestUnit, 4:40,24
+TestUnit, 5:00,23
+TestUnit, 5:20,22
+TestUnit, 5:40,21
+TestUnit, 6:00,20.5141
+TestUnit, 6:20,23.5967
+TestUnit, 6:40,17.68105
+TestUnit, 7:00,21.76505
+TestUnit, 7:20,32.84835
+TestUnit, 7:40,24.93235
+TestUnit, 8:00,35.01635
+TestUnit, 8:20,17.1007
+TestUnit, 8:40,31.1868
+TestUnit, 9:00,29.2708
+TestUnit, 9:20,30
+TestUnit, 9:40,28
+TestUnit, 10:00,26
+TestUnit, 10:20,21
+TestUnit, 10:40,20
+TestUnit, 11:00,19.7748
+TestUnit, 11:20,21
+TestUnit, 11:40,26
+TestUnit, 12:00,27
+TestUnit, 12:20,25
+TestUnit, 12:40,28
+TestUnit, 13:00,31
+TestUnit, 13:20,30
+TestUnit, 13:40,35.44435
+TestUnit, 14:00,32
+TestUnit, 14:20,33
+TestUnit, 14:40,31
+TestUnit, 15:00,30
+TestUnit, 15:20,29
+TestUnit, 15:40,29
+TestUnit, 16:00,28.03305
+TestUnit, 16:20,30
+TestUnit, 16:40,36.20315
+TestUnit, 17:00,16
+TestUnit, 17:20,22.3715
+TestUnit, 17:40,30.45515
+TestUnit, 18:00,32.53635
+TestUnit, 18:20,36.6221
+TestUnit, 18:40,22.70505
+TestUnit, 19:00,23
+TestUnit, 19:20,24
+TestUnit, 19:40,25
+TestUnit, 20:00,26.04035
+TestUnit, 20:20,25.1261
+TestUnit, 20:40,23.2087
+TestUnit, 21:00,28.2927
+TestUnit, 21:20,30
+TestUnit, 21:40,28
+TestUnit, 22:00,26.5471
+TestUnit, 22:20,25
+TestUnit, 22:40,26
+TestUnit, 23:00,25.79915
+TestUnit, 23:20,25
+TestUnit, 23:40,24
+CitizenScientist,0:00,32
+CitizenScientist,0:20,30
+CitizenScientist,0:40,29
+CitizenScientist,1:00,23
+CitizenScientist,1:20,22
+CitizenScientist,1:40,18
+CitizenScientist,2:00,17
+CitizenScientist,2:20,19
+CitizenScientist,2:40,21
+CitizenScientist,3:00,25
+CitizenScientist,3:20,22
+CitizenScientist,3:40,19
+CitizenScientist,4:00,21
+CitizenScientist,4:20,20
+CitizenScientist,4:40,20
+CitizenScientist,5:00,26
+CitizenScientist,5:20,25
+CitizenScientist,5:40,24
+CitizenScientist,6:00,23
+CitizenScientist,6:20,19
+CitizenScientist,6:40,15
+CitizenScientist,7:00,24
+CitizenScientist,7:20,29
+CitizenScientist,7:40,12
+CitizenScientist,8:00,25
+CitizenScientist,8:20,21
+CitizenScientist,8:40,22
+CitizenScientist,9:00,22
+CitizenScientist,9:20,21
+CitizenScientist,9:40,23
+CitizenScientist,10:00,23
+CitizenScientist,10:20,24
+CitizenScientist,10:40,25
+CitizenScientist,11:00,26
+CitizenScientist,11:20,25
+CitizenScientist,11:40,28
+CitizenScientist,12:00,29
+CitizenScientist,12:20,25
+CitizenScientist,12:40,22
+CitizenScientist,13:00,19
+CitizenScientist,13:20,15
+CitizenScientist,13:40,14
+CitizenScientist,14:00,12
+CitizenScientist,14:20,15
+CitizenScientist,14:40,16
+CitizenScientist,15:00,19
+CitizenScientist,15:20,20
+CitizenScientist,15:40,22
+CitizenScientist,16:00,26
+CitizenScientist,16:20,13
+CitizenScientist,16:40,20
+CitizenScientist,17:00,17
+CitizenScientist,17:20,21
+CitizenScientist,17:40,14
+CitizenScientist,18:00,14
+CitizenScientist,18:20,18
+CitizenScientist,18:40,20
+CitizenScientist,19:00,23
+CitizenScientist,19:20,22
+CitizenScientist,19:40,23
+CitizenScientist,20:00,24
+CitizenScientist,20:20,22
+CitizenScientist,20:40,20
+CitizenScientist,21:00,19
+CitizenScientist,21:20,16
+CitizenScientist,21:40,15
+CitizenScientist,22:00,14
+CitizenScientist,22:20,17
+CitizenScientist,22:40,18
+CitizenScientist,23:00,19
+CitizenScientist,23:20,22
+CitizenScientist,23:40,20
+HSS,0:00,21
+HSS,0:20,22
+HSS,0:40,21
+HSS,1:00,20
+HSS,1:20,21
+HSS,1:40,19
+HSS,2:00,18
+HSS,2:20,20
+HSS,2:40,21
+HSS,3:00,22
+HSS,3:20,21
+HSS,3:40,22
+HSS,4:00,20
+HSS,4:20,21
+HSS,4:40,22
+HSS,5:00,20
+HSS,5:20,19
+HSS,5:40,18
+HSS,6:00,17
+HSS,6:20,18
+HSS,6:40,16
+HSS,7:00,15
+HSS,7:20,16
+HSS,7:40,17
+HSS,8:00,16
+HSS,8:20,15
+HSS,8:40,15
+HSS,9:00,16
+HSS,9:20,18
+HSS,9:40,15
+HSS,10:00,19
+HSS,10:20,21
+HSS,10:40,22
+HSS,11:00,19
+HSS,11:20,18
+HSS,11:40,19
+HSS,12:00,17
+HSS,12:20,16
+HSS,12:40,16
+HSS,13:00,15
+HSS,13:20,14
+HSS,13:40,13
+HSS,14:00,11
+HSS,14:20,14
+HSS,14:40,16
+HSS,15:00,18
+HSS,15:20,19
+HSS,15:40,17
+HSS,16:00,15
+HSS,16:20,16
+HSS,16:40,17
+HSS,17:00,16
+HSS,17:20,18
+HSS,17:40,19
+HSS,18:00,20
+HSS,18:20,20
+HSS,18:40,19
+HSS,19:00,20
+HSS,19:20,17
+HSS,19:40,19
+HSS,20:00,18
+HSS,20:20,17
+HSS,20:40,15
+HSS,21:00,15
+HSS,21:20,14
+HSS,21:40,12
+HSS,22:00,10
+HSS,22:20,12
+HSS,22:40,15
+HSS,23:00,16
+HSS,23:20,18
+HSS,23:40,19
+XrayLady,0:00,15
+XrayLady,0:20,16
+XrayLady,0:40,15
+XrayLady,1:00,15
+XrayLady,1:20,15
+XrayLady,1:40,15
+XrayLady,2:00,15
+XrayLady,2:20,15
+XrayLady,2:40,15
+XrayLady,3:00,16
+XrayLady,3:20,15
+XrayLady,3:40,15
+XrayLady,4:00,15
+XrayLady,4:20,14
+XrayLady,4:40,15
+XrayLady,5:00,15
+XrayLady,5:20,16
+XrayLady,5:40,15
+XrayLady,6:00,15
+XrayLady,6:20,15
+XrayLady,6:40,15
+XrayLady,7:00,15
+XrayLady,7:20,11
+XrayLady,7:40,15
+XrayLady,8:00,12
+XrayLady,8:20,12
+XrayLady,8:40,12
+XrayLady,9:00,12
+XrayLady,9:20,14
+XrayLady,9:40,13
+XrayLady,10:00,10
+XrayLady,10:20,11
+XrayLady,10:40,12
+XrayLady,11:00,11
+XrayLady,11:20,12
+XrayLady,11:40,11
+XrayLady,12:00,11
+XrayLady,12:20,12
+XrayLady,12:40,13
+XrayLady,13:00,14
+XrayLady,13:20,14
+XrayLady,13:40,15
+XrayLady,14:00,14
+XrayLady,14:20,16
+XrayLady,14:40,15
+XrayLady,15:00,17
+XrayLady,15:20,15
+XrayLady,15:40,16
+XrayLady,16:00,16
+XrayLady,16:20,13
+XrayLady,16:40,12
+XrayLady,17:00,13
+XrayLady,17:20,14
+XrayLady,17:40,13
+XrayLady,18:00,14
+XrayLady,18:20,14
+XrayLady,18:40,15
+XrayLady,19:00,15
+XrayLady,19:20,14
+XrayLady,19:40,14
+XrayLady,20:00,15
+XrayLady,20:20,14
+XrayLady,20:40,13
+XrayLady,21:00,13
+XrayLady,21:20,12
+XrayLady,21:40,13
+XrayLady,22:00,13
+XrayLady,22:20,13
+XrayLady,22:40,13
+XrayLady,23:00,13
+XrayLady,23:20,13
+XrayLady,23:40,13
+RadCurieous,0:00,16
+RadCurieous,0:20,16
+RadCurieous,0:40,16
+RadCurieous,1:00,17
+RadCurieous,1:20,16
+RadCurieous,1:40,17
+RadCurieous,2:00,16
+RadCurieous,2:20,16
+RadCurieous,2:40,15
+RadCurieous,3:00,16
+RadCurieous,3:20,15
+RadCurieous,3:40,16
+RadCurieous,4:00,16
+RadCurieous,4:20,15
+RadCurieous,4:40,16
+RadCurieous,5:00,16
+RadCurieous,5:20,17
+RadCurieous,5:40,16
+RadCurieous,6:00,17
+RadCurieous,6:20,16
+RadCurieous,6:40,16
+RadCurieous,7:00,17
+RadCurieous,7:20,16
+RadCurieous,7:40,16
+RadCurieous,8:00,15
+RadCurieous,8:20,16
+RadCurieous,8:40,16
+RadCurieous,9:00,15
+RadCurieous,9:20,16
+RadCurieous,9:40,17
+RadCurieous,10:00,16
+RadCurieous,10:20,16
+RadCurieous,10:40,15
+RadCurieous,11:00,16
+RadCurieous,11:20,16
+RadCurieous,11:40,16
+RadCurieous,12:00,16
+RadCurieous,12:20,15
+RadCurieous,12:40,17
+RadCurieous,13:00,15
+RadCurieous,13:20,16
+RadCurieous,13:40,14
+RadCurieous,14:00,15
+RadCurieous,14:20,15
+RadCurieous,14:40,16
+RadCurieous,15:00,17
+RadCurieous,15:20,16
+RadCurieous,15:40,17
+RadCurieous,16:00,18
+RadCurieous,16:20,18
+RadCurieous,16:40,18
+RadCurieous,17:00,17
+RadCurieous,17:20,18
+RadCurieous,17:40,18
+RadCurieous,18:00,17
+RadCurieous,18:20,17
+RadCurieous,18:40,17
+RadCurieous,19:00,17
+RadCurieous,19:20,18
+RadCurieous,19:40,18
+RadCurieous,20:00,19
+RadCurieous,20:20,18
+RadCurieous,20:40,17
+RadCurieous,21:00,16
+RadCurieous,21:20,16
+RadCurieous,21:40,15
+RadCurieous,22:00,14
+RadCurieous,22:20,15
+RadCurieous,22:40,16
+RadCurieous,23:00,16
+RadCurieous,23:20,17
+RadCurieous,23:40,17
+TaxiDriver,0:00,41
+TaxiDriver,0:20,41
+TaxiDriver,0:40,42
+TaxiDriver,1:00,41
+TaxiDriver,1:20,41
+TaxiDriver,1:40,41
+TaxiDriver,2:00,41
+TaxiDriver,2:20,40
+TaxiDriver,2:40,41
+TaxiDriver,3:00,41
+TaxiDriver,3:20,42
+TaxiDriver,3:40,41
+TaxiDriver,4:00,41
+TaxiDriver,4:20,42
+TaxiDriver,4:40,41
+TaxiDriver,5:00,41
+TaxiDriver,5:20,40
+TaxiDriver,5:40,41
+TaxiDriver,6:00,42
+TaxiDriver,6:20,39
+TaxiDriver,6:40,36
+TaxiDriver,7:00,35
+TaxiDriver,7:20,37
+TaxiDriver,7:40,38
+TaxiDriver,8:00,38
+TaxiDriver,8:20,38
+TaxiDriver,8:40,38
+TaxiDriver,9:00,39
+TaxiDriver,9:20,39
+TaxiDriver,9:40,39
+TaxiDriver,10:00,39
+TaxiDriver,10:20,39
+TaxiDriver,10:40,39
+TaxiDriver,11:00,39
+TaxiDriver,11:20,40
+TaxiDriver,11:40,43
+TaxiDriver,12:00,39
+TaxiDriver,12:20,43
+TaxiDriver,12:40,40
+TaxiDriver,13:00,40
+TaxiDriver,13:20,39
+TaxiDriver,13:40,40
+TaxiDriver,14:00,40
+TaxiDriver,14:20,41
+TaxiDriver,14:40,40
+TaxiDriver,15:00,40
+TaxiDriver,15:20,39
+TaxiDriver,15:40,40
+TaxiDriver,16:00,39
+TaxiDriver,16:20,43
+TaxiDriver,16:40,36
+TaxiDriver,17:00,39
+TaxiDriver,17:20,40
+TaxiDriver,17:40,39
+TaxiDriver,18:00,40
+TaxiDriver,18:20,39
+TaxiDriver,18:40,38
+TaxiDriver,19:00,38
+TaxiDriver,19:20,38
+TaxiDriver,19:40,37
+TaxiDriver,20:00,36
+TaxiDriver,20:20,36
+TaxiDriver,20:40,35
+TaxiDriver,21:00,35
+TaxiDriver,21:20,34
+TaxiDriver,21:40,34
+TaxiDriver,22:00,33
+TaxiDriver,22:20,36
+TaxiDriver,22:40,37
+TaxiDriver,23:00,42
+TaxiDriver,23:20,44
+TaxiDriver,23:40,47
+ASWillhiem,0:00,16
+ASWillhiem,0:20,16
+ASWillhiem,0:40,16
+ASWillhiem,1:00,16
+ASWillhiem,1:20,15
+ASWillhiem,1:40,16
+ASWillhiem,2:00,16
+ASWillhiem,2:20,16
+ASWillhiem,2:40,16
+ASWillhiem,3:00,16
+ASWillhiem,3:20,17
+ASWillhiem,3:40,16
+ASWillhiem,4:00,16
+ASWillhiem,4:20,16
+ASWillhiem,4:40,14
+ASWillhiem,5:00,16
+ASWillhiem,5:20,16
+ASWillhiem,5:40,16
+ASWillhiem,6:00,15
+ASWillhiem,6:20,14
+ASWillhiem,6:40,13
+ASWillhiem,7:00,16
+ASWillhiem,7:20,11
+ASWillhiem,7:40,15
+ASWillhiem,8:00,17
+ASWillhiem,8:20,18
+ASWillhiem,8:40,20
+ASWillhiem,9:00,21
+ASWillhiem,9:20,21
+ASWillhiem,9:40,21
+ASWillhiem,10:00,21
+ASWillhiem,10:20,20
+ASWillhiem,10:40,19
+ASWillhiem,11:00,20
+ASWillhiem,11:20,21
+ASWillhiem,11:40,21
+ASWillhiem,12:00,21
+ASWillhiem,12:20,20
+ASWillhiem,12:40,18
+ASWillhiem,13:00,16
+ASWillhiem,13:20,15
+ASWillhiem,13:40,14
+ASWillhiem,14:00,13
+ASWillhiem,14:20,12
+ASWillhiem,14:40,12
+ASWillhiem,15:00,11
+ASWillhiem,15:20,12
+ASWillhiem,15:40,12
+ASWillhiem,16:00,12
+ASWillhiem,16:20,13
+ASWillhiem,16:40,12
+ASWillhiem,17:00,11
+ASWillhiem,17:20,12
+ASWillhiem,17:40,11
+ASWillhiem,18:00,12
+ASWillhiem,18:20,12
+ASWillhiem,18:40,11
+ASWillhiem,19:00,12
+ASWillhiem,19:20,11
+ASWillhiem,19:40,12
+ASWillhiem,20:00,11
+ASWillhiem,20:20,11
+ASWillhiem,20:40,11
+ASWillhiem,21:00,12
+ASWillhiem,21:20,12
+ASWillhiem,21:40,12
+ASWillhiem,22:00,12
+ASWillhiem,22:20,13
+ASWillhiem,22:40,13
+ASWillhiem,23:00,14
+ASWillhiem,23:20,14
+ASWillhiem,23:40,15
