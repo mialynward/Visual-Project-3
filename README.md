@@ -15,7 +15,6 @@ The team were divided into different tasks. **Braden and Roberto** worked on pro
 ## Task Questions
 
 1. To help visualize measurements over time from static and mobile sensors of radiation we will be building two graphs of the area: <br/>
-
 One such visualization shall be a map that show nodes where radiation is detected. This graphic will include Latitude and Longitude coordinates with black nodes being where radiation is detected from a static sensor. Colored nodes will represent where radiation is dtected by a mobile sensor. When hovered over, the nodes shall change to pink and display the exact coordinates and the sensor or user ID. The bigger the node is, the higher the radiation reading is. There will also be red, square nodes that will represent a hospital. If one of the hospital nodes appears, it is an indication that that hospital needs to evacuate due to radiation levels exceeding dangerous levels. There will be a slider provided on the top left that will allow you to change the time of the readings. As you step through the time, you should noticed the mobile sensors moving. <br/>
 
 ![MapRadiation1](https://user-images.githubusercontent.com/45511267/57503792-5f011980-72b7-11e9-87f4-680f0d1e68aa.png)
@@ -33,7 +32,6 @@ Mobile heat graph
 
 2. Create a graph that will demostrate uncertainty in the measurement of radiation across the city:
 <br/>
-
 In the map that shows the locations of the sensors and their readings, we added a selection at the bottom where instead of looking at the readings of the radiations levels, it shows the uncertainty of the sensors. The smaller the sizes of the node is, the less certain the data is. This was calculated by checking the highest and lowest readings of each node. If the difference between them is big, then it can be concluded that the readings are too vague to be certain.
 
 ![MapUncertainty2](https://user-images.githubusercontent.com/45511267/57504523-742b7780-72ba-11e9-94fa-c434e888722a.png)
@@ -43,7 +41,6 @@ It can be speculated that sensors close to the nuclear plant so drastic readings
 
 3. Is the data reliable enough to locate areas of concerns:
 <br/>
-
 It does not seem to be reliable enough. Some of the mobile sensors, when close to a static sensor or another mobile sensor, showed different radiation levels in their readings. Other sensors had readings that were drastically different than the readings during the times right before and after, showing that there could be a lot of outliers or false readings scewing the analysis.
 <br/>
 
